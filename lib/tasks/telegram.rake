@@ -45,5 +45,13 @@ namespace :telegram do
     end
 
     puts "[#{Time.current}] Done. Sent: #{sent}, Failed: #{failed}"
+
+    # Write status file so the UI can show last run info
+    status = {
+      last_run_at: Time.current.iso8601,
+      jobs_sent:   sent,
+      jobs_failed: failed
+    }
+    File.write(Rails.root.join('tmp', 'telegram_status.json'), status.to_json)
   end
 end

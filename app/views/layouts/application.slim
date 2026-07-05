@@ -51,4 +51,15 @@ html
       div= link_to 'Job Trends', trends_path
       div= link_to 'FAQs', faqs_path
       div= link_to 'Contact', contact_path
+    - status = telegram_notifier_status
+    .telegram-status
+      .telegram-status__dot class=("telegram-status__dot--ok" if status)
+      - if status
+        | 🤖 Last notifier run:
+        strong = " #{time_ago_in_words(Time.parse(status[:last_run_at]))} ago"
+        span.telegram-status__meta = " · #{status[:jobs_sent]} sent"
+        - if status[:jobs_failed] > 0
+          span.telegram-status__error = " · #{status[:jobs_failed]} failed"
+      - else
+        | 🤖 Notifier: never run yet
 

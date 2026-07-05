@@ -227,3 +227,42 @@ textarea {
 .footer a {
   color: white;
 }
+
+.telegram-status {
+  background: #1a252f;
+  color: #adb5bd;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+
+  strong {
+    color: #e9ecef;
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6c757d;
+    flex-shrink: 0;
+
+    &--ok {
+      background: $green;
+      box-shadow: 0 0 4px $green;
+    }
+  }
+
+  &__meta {
+    color: #adb5bd;
+  }
+
+  &__error {
+    color: #e74c3c;
+  }
+}
