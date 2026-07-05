@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_10_063322) do
+ActiveRecord::Schema.define(version: 2026_07_05_173554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_063322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "api_id"
+    t.datetime "telegram_notified_at"
     t.index ["api_id"], name: "index_comments_on_api_id"
     t.index ["description"], name: "index_comments_on_description", opclass: :gin_trgm_ops, using: :gin
     t.index ["post_id"], name: "index_comments_on_post_id"
@@ -48,7 +49,7 @@ ActiveRecord::Schema.define(version: 2024_01_10_063322) do
     t.index ["slug"], name: "index_keywords_on_slug"
   end
 
-  create_table "posts", id: :serial, force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer "number"
     t.string "api_id"
     t.datetime "created_at"

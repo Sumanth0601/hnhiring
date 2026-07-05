@@ -36,7 +36,7 @@ class Keyword < ActiveRecord::Base
       ocaml:          -> { Comment.matching_words(%w(ocaml)) },
       perl:           -> { Comment.matching_words(%w(perl)) },
       php:            -> { Comment.matching_words(%w(php)) },
-      python:         -> { Comment.matching_words(%w(python django)) },
+      python:         -> { Comment.matching_words(%w(python django flask fastapi)) },
       rails:          -> { Comment.matching_words(%w(rails ror)) },
       react:          -> { Comment.matching_text('\yreact\y(?!(-|\s)native)').or(Comment.matching_words(%w(reactjs))) },
       'react-native': -> { Comment.matching_words(%w(react-native)).or(Comment.matching_text('react native')) },

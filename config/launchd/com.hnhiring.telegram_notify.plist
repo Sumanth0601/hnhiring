@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.hnhiring.telegram_notify</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/sumanth/Downloads/hnhiring/bin/telegram_notify.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/sumanth/Downloads/hnhiring</string>
+
+    <!-- Run every 15 minutes (900 seconds).
+         Unlike cron, launchd fires the job after waking from sleep
+         if a run was missed while the Mac was asleep. -->
+    <key>StartInterval</key>
+    <integer>900</integer>
+
+    <!-- Run once immediately when loaded (on login/boot) -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sumanth/Downloads/hnhiring/log/telegram_notify.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/sumanth/Downloads/hnhiring/log/telegram_notify.log</string>
+
+    <!-- launchd doesn't inherit shell env, so set required vars explicitly -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/sumanth</string>
+        <key>PATH</key>
+        <string>/Users/sumanth/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>
