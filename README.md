@@ -102,18 +102,24 @@ This schedules the notifier to run every 15 minutes, auto-starts on login,
 and handles starting Docker + Postgres automatically if they are not running.
 
 ```bash
-# 1. Make the wrapper script executable
+# 1. Clone or copy the project to ~/Developer (NOT Downloads — macOS restricts launchd there)
+git clone git@github.com:Sumanth0601/hnhiring.git ~/Developer/hnhiring
+cd ~/Developer/hnhiring
+
+# 2. Make the wrapper script executable
 chmod +x bin/telegram_notify.sh
 
-# 2. Copy the plist to your LaunchAgents folder
-#    (update the username inside the file if it is not 'sumanth')
+# 3. Update the username in the plist if it is not 'sumanth'
+# sed -i '' 's/sumanth/YOUR_USERNAME/g' config/launchd/com.hnhiring.telegram_notify.plist
+
+# 4. Copy the plist to your LaunchAgents folder
 cp config/launchd/com.hnhiring.telegram_notify.plist \
    ~/Library/LaunchAgents/com.hnhiring.telegram_notify.plist
 
-# 3. Load it
+# 5. Load it
 launchctl load ~/Library/LaunchAgents/com.hnhiring.telegram_notify.plist
 
-# 4. Verify it is running
+# 6. Verify it is running
 launchctl list | grep hnhiring
 ```
 

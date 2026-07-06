@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-APP_DIR="/Users/sumanth/Downloads/hnhiring"
+APP_DIR="/Users/sumanth/Developer/hnhiring"
 LOG_PREFIX="[$(date '+%Y-%m-%d %H:%M:%S')]"
 
 echo "$LOG_PREFIX Starting hnhiring telegram notify"

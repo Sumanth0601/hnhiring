@@ -8,11 +8,11 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/sumanth/Downloads/hnhiring/bin/telegram_notify.sh</string>
+        <string>/Users/sumanth/Developer/hnhiring/bin/telegram_notify.sh</string>
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/sumanth/Downloads/hnhiring</string>
+    <string>/Users/sumanth/Developer/hnhiring</string>
 
     <!-- Run every 15 minutes (900 seconds).
          Unlike cron, launchd fires the job after waking from sleep
@@ -25,10 +25,10 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>/Users/sumanth/Downloads/hnhiring/log/telegram_notify.log</string>
+    <string>/Users/sumanth/Developer/hnhiring/log/telegram_notify.log</string>
 
     <key>StandardErrorPath</key>
-    <string>/Users/sumanth/Downloads/hnhiring/log/telegram_notify.log</string>
+    <string>/Users/sumanth/Developer/hnhiring/log/telegram_notify.log</string>
 
     <!-- launchd doesn't inherit shell env, so set required vars explicitly -->
     <key>EnvironmentVariables</key>
