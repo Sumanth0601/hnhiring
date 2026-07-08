@@ -10,8 +10,17 @@ class TelegramNotifier
     title = extract_title(comment.description)
     hn_url = "https://news.ycombinator.com/item?id=#{comment.api_id}"
 
+    plain_desc = comment.description.gsub(/<[^>]+>/, ' ').gsub(/\s+/, ' ')
+    tag = if plain_desc.match?(/\bpython\b/i)
+            '🐍 *New Remote Python Job on HN*'
+          elsif plain_desc.match?(/\bSDE\b|\bSWE\b/i)
+            '💼 *New Remote SDE\/SWE Job on HN*'
+          else
+            '💻 *New Remote Software Job on HN*'
+          end
+
     text = <<~MSG
-      🐍 *New Remote Python Job on HN*
+      #{tag}
 
       #{escape(title)}
 

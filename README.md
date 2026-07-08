@@ -3,7 +3,8 @@
 HN Hiring is an index of jobs from Hacker News' Who is Hiring? posts.
 
 It also includes an automated Telegram notification system that alerts you every
-15 minutes about new remote Python/FastAPI/Flask/Django job postings.
+15 minutes about new remote job postings that mention Python/FastAPI/Flask/Django
+or contain the terms SDE, SWE, or Software (case-insensitive).
 
 ## Requirements
 
@@ -71,11 +72,11 @@ Visit [localhost:3000](http://localhost:3000)
 
 ---
 
-## Telegram Notifications (Remote Python Jobs)
+## Telegram Notifications (Remote Jobs)
 
 Sends a Telegram message for every new remote job that mentions Python, FastAPI,
-Flask, or Django. Runs every 15 minutes via macOS launchd — survives restarts
-and catches up after sleep.
+Flask, Django, SDE, SWE, or Software (all case-insensitive). Runs every 15
+minutes via macOS launchd — survives restarts and catches up after sleep.
 
 ### Step 1 — Create a Telegram bot
 

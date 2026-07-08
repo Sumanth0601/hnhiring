@@ -10,7 +10,7 @@ namespace :telegram do
     puts "Populating keywords..."
     Keyword.populate!
 
-    # Step 2: Find unsent remote+python jobs from the current hiring post
+    # Step 2: Find unsent remote+relevant jobs from the current hiring post
     python_comment_ids = Comment.joins(:keywords)
                                 .merge(Keyword.technology.where(slug: 'python'))
                                 .select(:id)
@@ -19,14 +19,20 @@ namespace :telegram do
                                 .merge(Keyword.location.where(slug: 'remote'))
                                 .select(:id)
 
-    jobs = Comment.where(id: python_comment_ids)
+    role_keyword_ids = Comment.where("description ~* '\\mSDE\\m|\\mSWE\\m|\\mSoftware\\m'")
+                              .select(:id)
+
+    matching_ids = Comment.where(id: python_comment_ids).or(Comment.where(id: role_keyword_ids))
+                          .select(:id)
+
+    jobs = Comment.where(id: matching_ids)
                   .where(id: remote_comment_ids)
                   .where(telegram_notified_at: nil)
                   .joins(:post)
                   .merge(Post.where(type: 'HiringPost'))
                   .order(published_at: :asc)
 
-    puts "Found #{jobs.count} new remote Python job(s) to notify."
+    puts "Found #{jobs.count} new remote job(s) to notify."
 
     notifier = TelegramNotifier.new
     sent = 0
