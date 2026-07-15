@@ -19,8 +19,10 @@ namespace :telegram do
                                 .merge(Keyword.location.where(slug: 'remote'))
                                 .select(:id)
 
-    role_keyword_ids = Comment.where("description ~* '\\mSDE\\m|\\mSWE\\m|\\mSoftware\\m'")
-                              .select(:id)
+    role_keyword_ids = Comment.where(
+                                "description ILIKE ? OR description ILIKE ? OR description ILIKE ?",
+                                '%SDE%', '%SWE%', '%Software%'
+                              ).select(:id)
 
     matching_ids = Comment.where(id: python_comment_ids).or(Comment.where(id: role_keyword_ids))
                           .select(:id)
