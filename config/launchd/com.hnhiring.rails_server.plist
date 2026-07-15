@@ -5,9 +5,11 @@
     <key>Label</key>
     <string>com.hnhiring.rails_server</string>
 
+    <key>Program</key>
+    <string>/Users/sumanth/Developer/hnhiring/bin/rails_server.sh</string>
+
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/bash</string>
         <string>/Users/sumanth/Developer/hnhiring/bin/rails_server.sh</string>
     </array>
 
