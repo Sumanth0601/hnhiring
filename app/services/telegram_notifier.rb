@@ -15,6 +15,8 @@ class TelegramNotifier
             '🐍 *New Remote Python Job on HN*'
           elsif plain_desc.match?(/\bSDE\b|\bSWE\b/i)
             '💼 *New Remote SDE\/SWE Job on HN*'
+          elsif plain_desc.match?(/\bfounding\b/i)
+            '🚀 *New Remote Founding Role on HN*'
           else
             '💻 *New Remote Software Job on HN*'
           end

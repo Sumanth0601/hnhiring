@@ -20,8 +20,8 @@ namespace :telegram do
                                 .select(:id)
 
     role_keyword_ids = Comment.where(
-                                "description ILIKE ? OR description ILIKE ? OR description ILIKE ?",
-                                '%SDE%', '%SWE%', '%Software%'
+                                "description ILIKE ? OR description ILIKE ? OR description ILIKE ? OR description ILIKE ?",
+                                '%SDE%', '%SWE%', '%Software%', '%Founding%'
                               ).select(:id)
 
     matching_ids = Comment.where(id: python_comment_ids).or(Comment.where(id: role_keyword_ids))
