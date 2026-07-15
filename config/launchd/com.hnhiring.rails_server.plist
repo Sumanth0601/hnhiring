@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.hnhiring.rails_server</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/sumanth/Developer/hnhiring/bin/rails_server.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/sumanth/Developer/hnhiring</string>
+
+    <!-- Start immediately on login/load -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Restart automatically if the process exits -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sumanth/Developer/hnhiring/log/rails_server.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/sumanth/Developer/hnhiring/log/rails_server.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>/Users/sumanth</string>
+        <key>PATH</key>
+        <string>/Users/sumanth/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>RAILS_ENV</key>
+        <string>development</string>
+    </dict>
+</dict>
+</plist>

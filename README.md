@@ -70,6 +70,8 @@ bundle exec rails s
 
 Visit [localhost:3000](http://localhost:3000)
 
+> **Tip:** See the [Always-On Rails Server](#always-on-rails-server-port-3000) section below to keep port 3000 available at all times without manually starting it.
+
 ---
 
 ## Telegram Notifications (Remote Jobs)
@@ -150,4 +152,42 @@ tail -f log/telegram_notify.log
 
 ```bash
 bundle exec rake telegram:notify_python_remote
+```
+
+---
+
+## Always-On Rails Server (Port 3000)
+
+Keeps `localhost:3000` running at all times — starts on login, restarts automatically if it crashes, and brings up Docker + Postgres if needed.
+
+### Install
+
+```bash
+# 1. Make the script executable
+chmod +x bin/rails_server.sh
+
+# 2. Update the username in the plist if it is not 'sumanth'
+# sed -i '' 's/sumanth/YOUR_USERNAME/g' config/launchd/com.hnhiring.rails_server.plist
+
+# 3. Copy the plist to your LaunchAgents folder
+cp config/launchd/com.hnhiring.rails_server.plist \
+   ~/Library/LaunchAgents/com.hnhiring.rails_server.plist
+
+# 4. Load it
+launchctl load ~/Library/LaunchAgents/com.hnhiring.rails_server.plist
+
+# 5. Verify it is running
+launchctl list | grep rails_server
+```
+
+To stop it:
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.hnhiring.rails_server.plist
+```
+
+### Logs
+
+```bash
+tail -f log/rails_server.log
 ```
