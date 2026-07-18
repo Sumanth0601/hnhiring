@@ -68,9 +68,9 @@ bundle exec rake cron
 bundle exec rails s
 ```
 
-Visit [localhost:3000](http://localhost:3000)
+Visit [localhost:7654](http://localhost:7654)
 
-> **Tip:** See the [Always-On Rails Server](#always-on-rails-server-port-3000) section below to keep port 3000 available at all times without manually starting it.
+> **Tip:** See the [Always-On Rails Server](#always-on-rails-server-port-7654) section below to keep port 7654 available at all times without manually starting it.
 
 ---
 
@@ -156,9 +156,9 @@ bundle exec rake telegram:notify_python_remote
 
 ---
 
-## Always-On Rails Server (Port 3000)
+## Always-On Rails Server (Port 7654)
 
-Keeps `localhost:3000` running at all times — starts on login, restarts automatically if it crashes, and brings up Docker + Postgres if needed.
+Keeps `localhost:7654` running at all times — starts on login, restarts automatically if it crashes, and brings up Docker + Postgres if needed.
 
 ### Install
 

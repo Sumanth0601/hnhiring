@@ -53,6 +53,6 @@ export HOME="/Users/sumanth"
 export PATH="/Users/sumanth/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
 export RAILS_ENV="development"
 
-echo "$LOG_PREFIX Starting Rails on port 3000..."
+echo "$LOG_PREFIX Starting Rails on port 7654..."
 cd "$APP_DIR"
-exec /Users/sumanth/.local/bin/mise exec -- bundle exec rails server -p 3000 -b 127.0.0.1
+exec /Users/sumanth/.local/bin/mise exec -- bundle exec rails server -p 7654 -b 127.0.0.1
